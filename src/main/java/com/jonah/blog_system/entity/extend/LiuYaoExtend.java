@@ -14,7 +14,7 @@ public class LiuYaoExtend extends LiuYao {
     //    页大小
     public Integer pageSize;
     //查询开始时间
-    public String StartTime;
+    public String startTime;
     //结束时间
-    public String EndTime;
+    public String endTime;
 }

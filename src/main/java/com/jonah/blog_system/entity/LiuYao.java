@@ -1,5 +1,7 @@
 package com.jonah.blog_system.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
@@ -12,6 +14,7 @@ public class LiuYao {
     /**
      *
      */
+    @TableId(value="id",type = IdType.AUTO)
     private Integer id;
     /**
      * 所占之事
@@ -24,7 +27,7 @@ public class LiuYao {
     /**
      * 排盘
      */
-    private String tuPian;
+    private String paiPan;
     /**
      * 解卦
      */

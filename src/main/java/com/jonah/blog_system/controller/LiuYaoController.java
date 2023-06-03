@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Jonah
@@ -23,11 +24,11 @@ public class LiuYaoController {
     @Resource
     private LiuYaoService liuYaoService;
 
-    @PostMapping("/saveLiuYao")
-    public String saveLiuYao(@RequestBody LiuYaoExtend liuYaoExtend){
+    @PostMapping("/saveOrUpdateLiuYao")
+    public String updateOrSaveLiuYao(@RequestBody LiuYaoExtend liuYaoExtend){
         Result json;
         try {
-            liuYaoService.saveLiuYao(liuYaoExtend);
+            liuYaoService.saveOrUpdateLiuYao(liuYaoExtend);
             json = Result.success(Content.CAOZUO_SUCCESS);
         }catch (MyException e){
             log.info("************************业务处理异常**********************");
@@ -42,10 +43,10 @@ public class LiuYaoController {
     }
 
     @PostMapping("/deleteLiuYao")
-    public String deleteLiuYao(Integer id){
+    public String deleteLiuYao(@RequestBody List<Integer> ids){
         Result json;
         try {
-            liuYaoService.delLiuYao(id);
+            liuYaoService.delLiuYao(ids);
             json = Result.success(Content.CAOZUO_SUCCESS);
         }catch (MyException e){
             log.info("************************业务处理异常**********************");
@@ -59,26 +60,8 @@ public class LiuYaoController {
         return JSON.toJSONString(json);
     }
 
-    @PostMapping("/updateLiuYao")
-    public String updateLiuYao(@RequestBody LiuYaoExtend liuYaoExtend){
-        Result json;
-        try {
-            liuYaoService.updateLiuYao(liuYaoExtend);
-            json = Result.success(Content.CAOZUO_SUCCESS);
-        }catch (MyException e){
-            log.info("************************业务处理异常**********************");
-            log.info("异常信息：{}", e);
-            json = Result.error(e.getMessage());
-        }catch (Exception e){
-            log.warn("*************************非业务处理异常***********************");
-            log.warn("异常信息：{}",e);
-            json = Result.error("六爻更新失败");
-        }
-        return JSON.toJSONString(json);
-    }
-
     @GetMapping("/findLiuYaoPage")
-    public String findLiuYaoPage(@RequestBody LiuYaoExtend liuYaoExtend){
+    public String findLiuYaoPage(LiuYaoExtend liuYaoExtend){
         Result json;
         try {
             json = Result.success(Content.CAOZUO_SUCCESS, liuYaoService.findLiuYaoPage(liuYaoExtend));
