@@ -53,8 +53,8 @@ public class LiuYaoServiceImpl extends ServiceImpl<LiuYaoMapper, LiuYao> impleme
         if (StringUtil.notEmpty(liuYaoExtend.getWenTi())) {
             queryWrapper.like("wen_ti", liuYaoExtend.getWenTi());
         }
-        if (StringUtil.notEmpty(liuYaoExtend.getGuaMing())) {
-            queryWrapper.like("gua_ming", liuYaoExtend.getGuaMing());
+        if (StringUtil.notEmpty(liuYaoExtend.getGuaXiang())) {
+            queryWrapper.like("gua_ming", liuYaoExtend.getGuaXiang());
         }
         if (StringUtil.notEmpty(liuYaoExtend.getStartTime()) && StringUtil.notAllEmpty(liuYaoExtend.getEndTime())) {
             queryWrapper.between("create_time", liuYaoExtend.getStartTime().trim(), liuYaoExtend.getEndTime().trim());

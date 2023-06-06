@@ -23,7 +23,7 @@ public class LiuYao {
     /**
      * 本卦加变卦
      */
-    private String guaMing;
+    private String guaXiang;
     /**
      * 排盘
      */
@@ -31,7 +31,7 @@ public class LiuYao {
     /**
      * 解卦
      */
-    private String jieGua;
+    private String duanGua;
     /**
      *
      */

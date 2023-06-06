@@ -11,3 +11,6 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/shu_shu?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull
         username: root
         password: 123456
+    servlet:
+        multipart:
+            location: E:\Jonah_Blog\uploadPath
